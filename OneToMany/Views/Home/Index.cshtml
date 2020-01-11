@@ -1,0 +1,79 @@
+﻿@model IEnumerable<OneToMany.Models.Catagory>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+<div class="col-lg-6">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3>Object Store</h3></div>
+        <div class="panel-body">
+            <table class="table table-condensed" style="border-collapse:collapse;">
+
+                <thead>
+                    <tr>
+
+                        <th>Catagory Name</th>
+                        @*<th>Description</th>
+                <th>Provider Name</th>
+                <th>Region</th>
+                <th>Status</th>*@
+                    </tr>
+                </thead>
+                @foreach (Catagory c in Model)
+                {
+                    <tbody>
+                        <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
+
+                            <td>@c.Name</td>
+                        <tr>
+                            <td colspan="12" class="hiddenRow">
+                                <div class="accordian-body collapse" id="demo1">
+                                    <table class="table table-striped">
+                                        @*<thead>
+                                    <tr><td><a href="WorkloadURL">Workload link</a></td><td>Bandwidth: Dandwidth Details</td><td>OBS Endpoint: end point</td></tr>
+                                    <tr><th>Access Key</th><th>Secret Key</th><th>Status </th><th> Created</th><th> Expires</th><th>Actions</th></tr>
+                                </thead>*@
+                                        <tbody>
+                                            <tr>
+                                                @if (c.SubCatagories != null)
+                                                {
+                                                    @foreach (SubCatagory sc in c.SubCatagories)
+                                                    {
+                                                        <td>@sc.Name</td>
+                                                    }
+                                                }
+                                                
+
+                                            </tr>
+
+
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+
+                }
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+
